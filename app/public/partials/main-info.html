@@ -1,0 +1,19 @@
+<div ng-if="!details">
+  Loading results...
+</div>
+
+<div ng-if="details.success==true">
+  <img ng-src="{{ details.data.profile_pic_url }}" class="thumbnail animated flip movie-poster">
+
+  <span class="span-outer">
+    <span>{{ details.data.email }}</span>
+  </span>
+
+  <p><strong>Source:</strong> {{ details.data.source }}</p>
+
+</div>
+
+<div ng-if="details.success==false">
+  No results found.
+</div>
+
