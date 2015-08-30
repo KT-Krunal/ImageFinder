@@ -3,7 +3,7 @@
 </div>
 
 <div ng-if="details.success==true">
-  <img ng-src="{{ details.data.profile_pic_url }}" class="thumbnail animated flip movie-poster">
+  <img ng-src="{{ details.data.profile_pic_url }}" class="thumbnail animated flip profile-pic">
 
   <span class="span-outer">
     <span>{{ details.data.email }}</span>
@@ -14,6 +14,6 @@
 </div>
 
 <div ng-if="details.success==false">
-  No results found.
+  No results found. :(
 </div>
 

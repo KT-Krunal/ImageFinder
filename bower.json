@@ -1,10 +1,9 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
-  "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
-  "license": "MIT",
-  "private": true,
+  "name": "ImageFinder",
+  "description": "MEAN Stack App that allows searching person's image by email address",
+  "version": "0.0.1",
+  "homepage": "https://github.com/KT-Krunal/ImageFinder",
+  "private": false,
   "dependencies": {
     "angular": "~1.4.0",
     "angular-route": "~1.4.0",

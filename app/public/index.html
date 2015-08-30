@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp" ng-controller="FindController">
   <head>
-    <link rel="stylesheet" href="/css/style.css">
+    <title ng-bind="'Image Search - ' + details.data.email"></title>
+    <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
   </head>
@@ -12,7 +14,7 @@
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#"><b>ImageFinder</b> <span class="span-style"> ...know the email address? Look up their image</span></a>
+            <a class="navbar-brand" href="#"><b>ImageFinder</b> <span class="span-style">Powerful Image Search</span></a>
           </div>
         </div>
       </nav>
@@ -21,29 +23,22 @@
         <div class="nojs">Javascript is either disabled or not supported in your browser. Please enable it or use a Javascript enabled browser.</div>
       </noscript>
 
-      <div class="search-bar">
-        <div class="searchbox">
-          <div id="search">
-            <fieldset class="clearfix">
-                <input type="search" ng-model="search" placeholder="Enter email address here.." onFocus="this.placeholder=''"> 
-                <input type="submit" value="Search" ng-click="select()" class="button">
-            </fieldset>
+      <div class="animated zoomInRight">
+        <div class="input-group search-bar">
+          <div class="searchbox">
+            <div id="search">
+              <fieldset class="clearfix">
+                  <input type="search" ng-model="search" placeholder="Enter email address here.." onFocus="this.placeholder=''"> 
+                  <input type="submit" value="Search" ng-click="select()" class="button">
+              </fieldset>
+            </div>
           </div>
         </div>
       </div>
 
       <div id="main-info" ng-include="'partials/main-info.html'" class="col-md-8"></div>
-
-      <!-- <div class="animated zoomInRight">
-        <div class="input-group search-bar">
-          <input type="text" ng-model="search" ng-change="change()" onclick="select()" class="form-control" placeholder="Enter email address here.." autofocus />
-          <span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>
-        </div>
-  -->
-        
-      </div>
     </div>
-
+ 
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="app.js"></script>
   </body>

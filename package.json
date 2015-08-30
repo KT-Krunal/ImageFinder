@@ -9,18 +9,12 @@
     "url": "git@github.com:KT-Krunal/ImageFinder.git"
   },
   "dependencies": {
-    "body-parser": "~1.5.0",
-    "compression": "~1.0.1",
     "connect-mongo": "^0.4.1",
-    "cookie-parser": "~1.0.1",
-    "errorhandler": "~1.0.0",
     "express": "~4.0.0",
     "lodash": "~2.4.1",
-    "method-override": "~1.0.0",
     "mongoose": "^4.0.6",
     "q": "^1.4.1",
     "restify": "^4.0.0",
-    "restify-clients": "^1.0.0",
     "router": "^1.1.1"
   },
   "devDependencies": {
@@ -30,7 +24,7 @@
     "bower": "^1.5.2"
   },
   "scripts": {
-    "test": "mocha --reporter spec test/*.js"
+    "start": "node server.js"
   },
   "engines": {
     "node": ">=0.12.5"

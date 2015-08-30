@@ -1,21 +1,35 @@
 var mongoose            = require('mongoose');
-var User                = require('../models/User').User;
+var User                = require('../models/user').User;
 var fullContactClient   = require('../utils/fullContactClient');
 
-var UserController = function() {
+/**
+* This class exposes methods for CRUD operations for User db schema
+*/
+var userController = function() {
   return {
     getUser: getUser
   }
 
+  /**
+  * method to insert new user to db
+  */
   function createUser(user, res) {
     User.create(user, function (err, user) {
       if (!err) console.log('user saved successfully to database. email id: ' + user.email);
     });
   };
 
-  //this method can be easily extended to consume various services to find the result
+  /**
+  * method to search user image by email id using third party services
+  * currently it only connects to FullContact service API for lookup however this
+  * can be easily extended to search multiple services 
+  *
+  */
   function searchUser(email, res) {
     
+    /**
+    * handle the api response
+    */
     function handleFullContactResponse(data) {
       if(data && data.success == true) {
         //insert the record into the database for future reference
@@ -38,8 +52,18 @@ var UserController = function() {
     fullContactClient.getFullContactData(email, handleFullContactResponse);
   };
 
+  /**
+  * method to find user image by provided email id
+  */
   function getUser(req, res) {
-    User.findOne({email: req.params.email}).exec(function(err, user) {
+
+    var email = req.query.email;
+
+    if(!email) {
+      return res.status(400).send('"email" query parameter not provided');
+    }
+
+    User.findOne({email: email}).exec(function(err, user) {
       if (err) {
         console.log('db error: ' + err.toString());
         return res.status(500).send('we are looking into it. come back soon!');
@@ -47,13 +71,13 @@ var UserController = function() {
 
       if(!user) {
         //search for the image using various services
-        searchUser(req.params.email, res);
+        searchUser(email, res);
       } else {
-        console.log('user found in database. email: ' + req.params.email);
+        console.log('user found in database. email: ' + email);
         res.type('json').json(user);
       }
     });
   };
 }
 
-module.exports = UserController;
+module.exports = userController;

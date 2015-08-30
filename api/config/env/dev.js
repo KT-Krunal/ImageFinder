@@ -5,6 +5,6 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/yikyak-dev'
+    uri: 'mongodb://localhost/search-dev'
   },
 };

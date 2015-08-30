@@ -6,6 +6,10 @@ var client = restify.createJsonClient({
   url: config.fullContactHost
 });
 
+/**
+* method to search public user information from FullContact service using email
+* successful call returns url to the picture
+*/
 exports.getFullContactData = function(email, callback, res) {
   client.get(config.personApiUri + email, function(err, req, res, data) {
     if(err) {
