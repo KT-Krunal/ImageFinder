@@ -4,7 +4,7 @@ angular.module('myApp', [])
   .controller('FindController', function($scope, $http) {
     
     if($scope.search === undefined) {
-      $scope.search = 'toshm@hotmail.com';
+      $scope.search = 'tom.cruise@fake.com';
       fetch($scope.search);
     }
     
