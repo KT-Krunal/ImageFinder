@@ -41,7 +41,7 @@ var userController = function() {
         
         createUser(resObj);
         //return the response
-        res.type('json').json(resObj);
+        return res.type('json').json(resObj);
       } else {
         console.log('FullContact API did not return any result for email:' + email);
         return res.status(404).send('user not found');
